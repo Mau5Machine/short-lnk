@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
-
+import { Form, Button, Card } from 'semantic-ui-react';
 class Signup extends Component {
   constructor(props) {
     super(props)
@@ -35,17 +35,28 @@ class Signup extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Sign Up Component</h1>
-
-        {this.state.error ? <p>{this.state.error}</p> : undefined}
-
-        <form onSubmit={this.onSubmit.bind(this)} noValidate>
-          <input type="email" ref="email" name="email" placeholder="Email" />
-          <input type="password" ref="password" name="password" placeholder="Password" />
-          <button>Create Account</button>
-        </form>
-        <Link to="/">Already have an account?</Link>
+      <div className="mt-10">
+        <Card
+          centered={true}
+          raised={true}
+        >
+          <Card.Content>
+            <Card.Header>Sign Up</Card.Header>
+            {this.state.error ? <p>{this.state.error}</p> : undefined}
+            <Form onSubmit={this.onSubmit.bind(this)} noValidate>
+              <Form.Field>
+                <label>Email Address</label>
+                <input type="email" ref="email" name="email" placeholder="Email" />
+              </Form.Field>
+              <Form.Field>
+                <label>Password</label>
+                <input type="password" ref="password" name="password" placeholder="Password" />
+              </Form.Field>
+              <Button type="submit" primary>Sign Up</Button>
+            </Form>
+            <Link to="/">Already have an account?</Link>
+          </Card.Content>
+        </Card>
       </div>
     )
   }

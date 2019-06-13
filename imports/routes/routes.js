@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
-import Links from '/imports/ui/Links';
+import Link from '/imports/ui/Link';
 import Signup from '/imports/ui/Signup';
 import NotFound from '/imports/ui/NotFound';
 import Login from '/imports/ui/Login';
@@ -43,7 +43,7 @@ export const routes = (
     <Switch>
       <Route exact path="/" component={Login} render={onEnterPublicPage} />
       <Route path="/signup" component={Signup} render={onEnterPublicPage} />
-      <Route path="/links" component={Links} render={onEnterPrivatePage} />
+      <Route path="/links" component={Link} render={onEnterPrivatePage} />
       <Route component={NotFound} />
     </Switch>
   </Router>
