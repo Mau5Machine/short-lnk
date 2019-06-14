@@ -4,14 +4,27 @@ import { Meteor } from 'meteor/meteor';
 import shortid from 'shortid';
 
 class AddLink extends Component {
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      url: ''
+    }
+  }
   onSubmit(e) {
     e.preventDefault();
-    const url = this.refs.url.value.trim();
+    const { url } = this.state;
     if (url) {
-      Meteor.call('links.insert', url);
-      this.refs.url.value = '';
+      Meteor.call('links.insert', url, (err, res) => {
+        if (!err) {
+          this.setState({ url: '' });
+        }
+      });
     }
+  }
+  onChange(e) {
+    this.setState({
+      url: e.target.value.trim()
+    });
   }
 
   render() {
@@ -20,7 +33,11 @@ class AddLink extends Component {
         <p>Add Link</p>
         <Form onSubmit={this.onSubmit.bind(this)}>
           <Form.Field>
-            <input type="text" ref="url" name="url" placeholder="URL" />
+            <input
+              type="text"
+              placeholder="URL"
+              value={this.state.url}
+              onChange={this.onChange.bind(this)} />
             <Button primary>Add Link</Button>
           </Form.Field>
         </Form>
