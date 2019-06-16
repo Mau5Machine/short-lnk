@@ -33,7 +33,7 @@ class Login extends Component {
           raised={true}
         >
           <Card.Content>
-            <Card.Header>Log In</Card.Header>
+            <Card.Header>Short Lnk Log In</Card.Header>
             {this.state.error ? <p>{this.state.error}</p> : undefined}
             <Form onSubmit={this.onSubmit.bind(this)} noValidate>
               <Form.Field>
