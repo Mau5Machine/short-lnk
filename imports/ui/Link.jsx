@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Container } from 'semantic-ui-react';
 import LinksList from './LinksList';
 import PrivateHeader from './PrivateHeader';
@@ -11,8 +11,8 @@ export default Link = () => {
       <Container>
         <PrivateHeader title="Your Stored Links" />
         <LinksListFilters />
-        <LinksList />
         <AddLink />
+        <LinksList />
       </Container>
     </div>
   );

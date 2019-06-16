@@ -27,7 +27,7 @@ class Login extends Component {
   }
   render() {
     return (
-      <div className="mt-10">
+      <div>
         <Card
           centered={true}
           raised={true}

@@ -48,6 +48,9 @@ export default class LinksListItem extends Component {
             <List.Description>{this.props.url}</List.Description>
             <List.Description>{this.props.shortUrl}</List.Description>
             {this.renderStats()}
+            <a href={this.props.shortUrl} target="_blank">
+              Visit
+            </a>
             <button ref="copy" data-clipboard-text={this.props.shortUrl}>{this.state.copied ? 'Copied' : 'Copy'}</button>
             {this.state.error ? <small style={this.state.styles}>{this.state.error}</small> : undefined}
             <button ref="hide" onClick={() => {
