@@ -40,7 +40,7 @@ export default class LinksList extends Component {
       <div>
         <Card>
           <Card.Content>
-            <p>Links List Here!</p>
+            <p>Links List Here! YO!</p>
             <List divided relaxed>
               {this.renderLinksListItems()}
             </List>
